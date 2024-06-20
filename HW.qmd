@@ -4,7 +4,6 @@ subtitle: "Ayush Heda - 23200383"
 date: "06/05/2024"
 format:
   revealjs:
-    theme: Blood
     slide-number: true
     transition: fade
 execute: 
