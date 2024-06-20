@@ -1,7 +1,7 @@
 ---
 title: "R Homework 1"
 subtitle: "Ayush Heda - 23200383"
-date: "06/05/2024"
+date: "06/20/2024"
 format:
   revealjs:
     slide-number: true
