@@ -1,0 +1,102 @@
+---
+title: "R Homework 1"
+subtitle: "Ayush Heda - 23200383"
+date: "06/05/2024"
+format:
+  revealjs:
+    theme: Blood
+    slide-number: true
+    transition: fade
+execute: 
+  eval: true
+  echo: false
+  message: false
+  warning: false
+fontsize: 13pt
+---
+
+## <span style="color: orange;"><strong>*Introduction*</strong></span>
+
+In this presentation, we will perform a basic analysis of the `Motor Trend Car Road Tests` dataset using R-Quarto. The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).
+
+We will explore some summary statistics and create a scatter plot to visualize the relationship between miles per gallon (mpg) and horsepower (hp).
+
+![Source: primecreative](https://assets.primecreative.com.au/imagegen/cp/black/800/600/s3/cougar-assets/tradeuniquecars/gallery1906/mazda-rx4-6.jpg)
+
+## <span style="color: orange;"><strong>*About the Dataset*</strong></span>
+
+```{r}
+# Load the mtcars dataset
+data(mtcars)
+head(mtcars)
+?mtcars
+```
+
+A data frame with 32 observations on 11 (numeric) variables.
+
+[, 1]	mpg	Miles/(US) gallon
+
+[, 2]	cyl	Number of cylinders
+
+[, 3]	disp	Displacement (cu.in.)
+
+[, 4]	hp	Gross horsepower
+
+[, 5]	drat	Rear axle ratio
+
+[, 6]	wt	Weight (1000 lbs)
+
+[, 7]	qsec	1/4 mile time
+
+[, 8]	vs	Engine (0 = V-shaped, 1 = straight)
+
+[, 9]	am	Transmission (0 = automatic, 1 = manual)
+
+[,10]	gear	Number of forward gears
+
+[,11]	carb	Number of carburetors
+
+
+## <span style="color: orange;"><strong>*Summary Statistics*</strong></span>
+
+#### <span style="color: pink;"><u>Miles per Gallon (mpg)</u></strong>
+```{r}
+# Summary statistics for miles per gallon (mpg)
+summary(mtcars$mpg)
+```
+
+- The dataset shows a wide range of fuel efficiencies, with mpg values ranging from a low of 10.40 to a high of 33.90.
+- The distribution is slightly skewed towards lower mpg values since the mean (20.09) is slightly higher than the median (19.20).
+- The interquartile range (IQR), which is the difference between the 3rd quartile and the 1st quartile, is 7.37 (22.80 - 15.43). This suggests that the middle 50% of the cars have mpg values that are relatively close to each other.
+- Cars in the lower quartile are significantly less fuel-efficient compared to those in the upper quartile.
+
+#### <span style="color: pink;"><u>Horsepower (hp)</u></strong>
+```{r}
+# Summary statistics for horsepower (hp)
+summary(mtcars$hp)
+```
+
+- The dataset shows a wide range of horsepower values, with hp values ranging from a low of 52.0 to a high of 335.0.
+- The distribution is slightly right skewed towards lower hp values since the mean (146.7) is slightly higher than the median (123.0).
+- The IQR, which is the difference between the 3rd quartile and the 1st quartile, is 83.5 hp (180.0 - 96.5), indicating variability in horsepower among the middle 50% of the dataset.
+
+
+## <span style="color: orange;"><strong>*Scatter Plot*</strong></span>
+
+```{r}
+# Scatter plot: Miles per gallon (mpg) vs. Horsepower (hp)
+plot(mtcars$hp, mtcars$mpg, 
+     xlab = "Horsepower", ylab = "Miles per gallon", 
+     main = "Scatter Plot of MPG vs. HP")
+```
+
+#### <span style="color: pink;"><u>Interpretation</u></strong>
+The graph depicts the relationship between horsepower (hp) and miles per gallon (mpg) for the cars in the mtcars dataset.
+
+- There is a `negative relationship` between horsepower and miles per gallon. As horsepower increases, miles per gallon tend to decrease. This suggests that cars with more horsepower are generally less fuel-efficient.
+- At lower horsepower levels (50-100 hp), the mpg values are relatively high, mostly above 20 mpg.
+- As horsepower increases from 100 to 150 hp, the mpg values start to spread out and decrease, generally staying between 10 and 25 mpg.
+- For cars with horsepower greater than 150 hp, the mpg values are mostly below 20 mpg, indicating lower fuel efficiency.
+- There are a few outliers where cars with higher horsepower still achieve relatively better mpg. For instance, there are points around 150-200 hp with mpg close to 20.
+
+The plot confirms the expected trend that higher horsepower cars typically consume more fuel, as evidenced by their lower miles per gallon. This inverse relationship is important for understanding the trade-offs between engine performance and fuel efficiency in vehicles.
